@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :books, only: [:new, :create, :edit, :index, :show, :destroy] do
+  resources :books, only: [:new, :create, :edit, :index, :update, :show, :destroy] do
 end
   
   resources :users, only: [:show, :index, :edit, :update]

@@ -1,3 +1,13 @@
+<%= flash[:success] %>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
@@ -12,7 +22,7 @@
       <% end %>
 
       <h1>New Book</h1>
-
+      
 
       <%= form_with model: @book, url: '/books', method: :post do |f| %>
 
@@ -27,7 +37,7 @@
       <% end %>
       </div>
     </div>
-    
+
     <div class="col-md-8 offset-md-1">
        <h2>books detail</h2>
 
@@ -36,15 +46,15 @@
   <p>投稿ユーザー画像：<%= image_tag 'no_image.jpg' %></p>
   <p>タイトル：<%= @book.title %></p>
   <p>説明：<%= @book.body %></p>
-  
-  
-  
+
+
+
   <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book.id), method: :delete %>
+    <%= link_to "Edit", edit_book_path(@book.id), class: 'btn btn-sm btn-danger' %>
   <% end %>
-  
+
   <% if @book.user == current_user %>
-    <%= link_to "Delete", book_path(@book.id), method: :delete %>
+    <%= link_to "Delete", book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete %>
   <% end %>
-  
+
 </div>
