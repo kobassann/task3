@@ -19,43 +19,46 @@
           </a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-             
-             <% if user_signed_in? %>
+
+            <% if user_signed_in? %>
              <li>
-               <%= link_to "home", users_path %>
+               <%= link_to "Home", user_path(current_user) %>
              </li>
              <li>
-               <%= link_to "users", users_path %>
+               <%= link_to "Users", users_path %>
              </li>
              <li>
-               <%= link_to "books", books_path %>
+               <%= link_to "Books", books_path %>
              </li>
              <li>
                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
              </li>
              <% else %>
-              <li>
-               <%= link_to "home", root_path %>
+             <li>
+               <%= link_to "Home", root_path %>
              </li>
-              <li>
+             <li>
+               <%= link_to "About", homes_about_path %>
+             </li>
+             <li>
                <%= link_to "Sign up", new_user_registration_path %>
-              </li>
-              <li>
+             </li>
+             <li>
                <%= link_to "Log in", new_user_session_path %>
-              </li>
-             <% end %>
+             </li>
+            <% end %>
             </ul>
           </div>
         </div>
       </nav>
-     
-      
+
+
     </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
-  
+
   <footer>
     <div class="container mt-5">
       <div class="row">

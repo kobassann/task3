@@ -22,7 +22,7 @@
       <% end %>
 
       <h1>New Book</h1>
-      
+
 
       <%= form_with model: @book, url: '/books', method: :post do |f| %>
 
@@ -54,7 +54,7 @@
   <% end %>
 
   <% if @book.user == current_user %>
-    <%= link_to "Delete", book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete %>
+    <%= link_to "Delete", book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
   <% end %>
 
 </div>

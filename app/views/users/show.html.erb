@@ -1,12 +1,14 @@
 <%= flash[:success] %>
-
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
       <h1>User info</h1>
       <div>
         <%= image_tag @user.get_profile_image(100,100) %>
-        <h3><%= @user.name %></h3>
+        <h4>Name</h4>
+        <span><%= @user.name %></span>
+        <h4>Introdution</h4>
+        <span><%= @user.introdution %></span>
       </div>
       <div class="row">
       <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
