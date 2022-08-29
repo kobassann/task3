@@ -1,7 +1,11 @@
 
       <h1>User info</h1>
       <div>
+      <% if user.profile_image.attached? %>
         <%= image_tag user.get_profile_image(100,100) %>
+      <% else %>
+        <%= image_tag 'no_image', size: "100*100" %>
+      <% end %>
         <h5>name</h5>
         <%= user.name %>
         <h5>introduction</h5>
